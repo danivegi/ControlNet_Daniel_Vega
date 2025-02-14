@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Lista de tareas</h2>
+  
+    <div class="agregar-tarea">
+      <input 
+        type="text" 
+        [(ngModel)]="nuevaTarea" 
+        placeholder="Introduzca una nueva tarea..."
+        (keyup.enter)="agregarTarea()">
+      <button (click)="agregarTarea()">Agregar tarea</button>
+    </div>
+  
+    <div class="lista-tareas">
+      @for (tarea of tareas; track tarea.id) {
+        <div class="tarea">
+          <span>{{ tarea.texto }}</span>
+          <button (click)="eliminarTarea(tarea.id)">Eliminar</button>
+        </div>
+      }
+    </div>
+  
+    <div class="estado-tareas">
+      @if (cantidadTareas === 0) {
+        <br>
+        <p><b>No tiene ninguna tarea programada</b></p>
+      } @else {
+        <p>Número de tareas en la lista: {{ cantidadTareas }}</p>
+      }
+    </div>
+  </div>
+  
