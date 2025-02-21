@@ -1,0 +1,8 @@
+<button (click)="toggleMostrarFavoritos()">
+  {{ mostrarFavoritos ? "Mostrar todos los productos" : "Mostrar marcados en favoritos" }}
+</button>
+<ul>
+  @for(fruta of frutasFiltradas; track fruta.id){
+  <component-detalle-producto [fruta]="fruta" (frutaFavoritaEmitida)="toggleFavorito($event)" />
+  }
+</ul>
